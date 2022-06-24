@@ -1,7 +1,7 @@
 import {SafeAreaView, View, Text, StatusBar, StyleSheet, ScrollView} from 'react-native'
 
-import {Header, Post, Stories} from '../components'
-import {COLORS} from '../constants'
+import {AppNav, Header, navIcons, Post, Stories} from '../components'
+import {COLORS, SIZES} from '../constants'
 import {POSTS} from "../data/Posts";
 
 const HomeScreen = () => {
@@ -15,6 +15,7 @@ const HomeScreen = () => {
                     <Post post={post} key={index} />
                 ))}
             </ScrollView>
+            <AppNav icons={navIcons} />
         </SafeAreaView>
     )
 }
