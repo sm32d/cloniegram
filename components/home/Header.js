@@ -15,7 +15,7 @@ const Header = () => {
 
     return (
         <View style={{
-            marginTop: StatusBar.currentHeight,
+            marginTop: SIZES.base,
             paddingHorizontal: SIZES.large + 2,
             flexDirection: 'row',
             justifyContent: 'space-between',
@@ -58,9 +58,6 @@ const Header = () => {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.icons}>
                     <AntDesign name="hearto" size={SIZES.extraLarge} color={COLORS.white} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.icons}>
-                    <AntDesign name="pluscircleo" size={SIZES.extraLarge} color={COLORS.white} />
                 </TouchableOpacity>
             </View>
         </View>

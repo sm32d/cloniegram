@@ -6,7 +6,7 @@ import {COLORS, SIZES} from "../../constants";
 
 const Post = ({post}) => {
   return (
-      <View style={{marginBottom: SIZES.icon}}>
+      <View style={{marginBottom: SIZES.base + 2}}>
           <Divider width={1} orientation="vertical" />
           <PostHeader post={post} />
           <PostImage post={post} />
@@ -126,6 +126,14 @@ const CommentSection = ({post}) => (
                 {post.comments.length > 1 ? 'comments' : 'comment'}
             </Text>
         )}
+        {post.comments.map((comment, index) => (
+            <View key={index} style={{flexDirection:'row', marginTop: 2}}>
+                <Text style={{color: COLORS.white}}>
+                    <Text style={{fontWeight: '600'}}>{comment.user}</Text>
+                    <Text> {comment.comment}</Text>
+                </Text>
+            </View>
+        ))}
     </View>
 )
 
