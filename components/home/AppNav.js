@@ -2,7 +2,7 @@ import {Image, TouchableOpacity, View} from "react-native";
 import {useState} from "react";
 import {Divider} from "react-native-elements";
 import { Ionicons } from '@expo/vector-icons';
-import {COLORS, SIZES} from "../constants";
+import {COLORS, SIZES} from "../../constants";
 
 //<Ionicons name="home-outline" size={24} color="black" /> #home
 //<Ionicons name="search-outline" size={24} color="black" /> #search
@@ -26,11 +26,14 @@ export const navIcons = [
     }
 ]
 
-const AppNav = ({icons}) => {
+const AppNav = ({icons, navigation}) => {
     const [activeTab, setActiveTab] = useState('Home');
 
     const Icon = ({icon}) => (
-        <TouchableOpacity onPress={() => setActiveTab(icon.name)}>
+        <TouchableOpacity onPress={() => {
+            setActiveTab(icon.name)
+            activeTab === 'Add' ? navigation.push('NewPostScreen') : null
+        }}>
             <Ionicons name={activeTab === icon.name ? icon.active : icon.inactive} size={SIZES.icon} color={COLORS.white} />
         </TouchableOpacity>
     )

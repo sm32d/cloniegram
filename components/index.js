@@ -1,8 +1,8 @@
 import Stories from "./home/Stories";
 import Header from "./home/Header";
 import Post from "./home/Post";
-import AppNav from "./AppNav";
-import {navIcons} from "./AppNav";
+import AppNav from "./home/AppNav";
+import {navIcons} from "./home/AppNav";
 
 import AddNewPost from "./newPost/AddNewPost";
 

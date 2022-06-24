@@ -4,7 +4,7 @@ import {AppNav, Header, navIcons, Post, Stories} from '../components'
 import {COLORS, SIZES} from '../constants'
 import {POSTS} from "../data/Posts";
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={COLORS.black} barStyle="light-content" />
@@ -15,7 +15,7 @@ const HomeScreen = () => {
                     <Post post={post} key={index} />
                 ))}
             </ScrollView>
-            <AppNav icons={navIcons} />
+            <AppNav icons={navIcons} navigation={navigation} />
         </SafeAreaView>
     )
 }

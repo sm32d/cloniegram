@@ -4,26 +4,26 @@ import { Ionicons } from '@expo/vector-icons';
 import {COLORS, SIZES} from "../../constants";
 import FormikPostUploader from "./FormikPostUploader";
 
-const AddNewPost = () => {
+const AddNewPost = ({navigation}) => {
     return(
         <View style={{
             marginHorizontal: SIZES.base + 2,
             marginTop: SIZES.base,
         }}>
-            <Header />
+            <Header navigation={navigation} />
             <FormikPostUploader />
         </View>
     )
 }
 
-const Header = () => (
+const Header = ({navigation}) => (
     <View style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: SIZES.base,
     }}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
             <Ionicons name="arrow-back" size={SIZES.icon} color={COLORS.white} />
         </TouchableOpacity>
         <Text style={{
