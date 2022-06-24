@@ -11,7 +11,7 @@ const AddNewPost = ({navigation}) => {
             marginTop: SIZES.base,
         }}>
             <Header navigation={navigation} />
-            <FormikPostUploader />
+            <FormikPostUploader navigation={navigation} />
         </View>
     )
 }

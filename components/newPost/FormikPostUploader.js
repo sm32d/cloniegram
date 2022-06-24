@@ -3,6 +3,7 @@ import {useState} from "react";
 
 import * as Yup from "yup";
 import {Formik} from "formik";
+import validUrl from "valid-url";
 
 import {COLORS, SIZES} from "../../constants";
 import {Divider} from "react-native-elements";
@@ -14,12 +15,16 @@ const uploadPostSchema = Yup.object().shape({
   caption: Yup.string().max(2200, 'Caption reached character limit')
 })
 
-const FormikPostUploader = () => {
+const FormikPostUploader = ({navigation}) => {
     const  [thumnailUrl, setThumnailUrl] = useState(PLACEHOLDER_IMAGE);
   return (
       <Formik
         initialValues={{caption: "", imageUrl: ""}}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => {
+            console.log(values)
+            console.log('Your post was submitted successfully!')
+            navigation.goBack()
+        }}
         validationSchema={uploadPostSchema}
         validateOnMount={true}
       >
@@ -31,7 +36,7 @@ const FormikPostUploader = () => {
                       flexDirection: 'row',
                       alignItems: 'flex-start',
                   }}>
-                      <Image source={{uri: thumnailUrl ? thumnailUrl : PLACEHOLDER_IMAGE}} style={{
+                      <Image source={{uri: validUrl.is_uri(thumnailUrl) ? thumnailUrl : PLACEHOLDER_IMAGE}} style={{
                           width: 100,
                           height: 100,
                       }} />
