@@ -51,7 +51,7 @@ const FormikPostUploader = () => {
                       />
                   </View>
 
-                  <View style={{marginLeft: SIZES.small, marginBottom: SIZES.base}}>
+                  <View style={{marginHorizontal: SIZES.small, marginBottom: SIZES.base}}>
                       <TextInput
                           placeholder= 'Enter Image URL'
                           placeholderTextColor={COLORS.gray}
@@ -71,7 +71,17 @@ const FormikPostUploader = () => {
                           }}>{errors.imageUrl}</Text>
                       )}
                   </View>
-                  <Button onPress={handleSubmit} title='Share' disabled={!isValid} />
+                  <View style={{
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      marginTop: SIZES.base,
+                  }}>
+                      <View style={{
+                          width: '30%',
+                      }}>
+                          <Button onPress={handleSubmit} title='Share' disabled={!isValid} />
+                      </View>
+                  </View>
               </>
           )}
       </Formik>

@@ -21,6 +21,7 @@ const Header = () => (
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        marginBottom: SIZES.base,
     }}>
         <TouchableOpacity>
             <Ionicons name="arrow-back" size={SIZES.icon} color={COLORS.white} />
