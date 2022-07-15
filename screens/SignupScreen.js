@@ -2,7 +2,7 @@ import { Image, View } from "react-native";
 import { COLORS, SIZES } from "../constants";
 import { SignupForm } from "../components";
 
-const LoginScreen = () => {
+const SignupScreen = ({ navigation }) => {
     return (
         <View style={{
             flex: 1,
@@ -19,9 +19,9 @@ const LoginScreen = () => {
                     height: 100
                 }} />
             </View>
-            <SignupForm />
+            <SignupForm navigation={navigation} />
         </View>
     );
 }
 
-export default LoginScreen;
+export default SignupScreen;

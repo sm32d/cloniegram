@@ -9,7 +9,7 @@ const Stack = createStackNavigator()
 
 const SignedInStack = () => (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="SignupScreen" screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName="LoginScreen" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
             <Stack.Screen name="NewPostScreen" component={NewPostScreen} />
             <Stack.Screen name={"LoginScreen"} component={LoginScreen} />

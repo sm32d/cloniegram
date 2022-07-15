@@ -13,7 +13,7 @@ import Validator from 'email-validator';
 
 import { COLORS, SIZES } from '../../constants';
 
-const SignupForm = () => {
+const SignupForm = ({ navigation }) => {
     const SignupFormSchema = yup.object().shape({
         email: yup.string().required('An email is required').email(),
         username: yup.string().required('A username is required').min(3, 'Username must be at least 3 characters long'),
@@ -95,7 +95,7 @@ const SignupForm = () => {
                             }}>
                                 Already have an account?
                             </Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.goBack()}>
                                 <Text style={{ color: COLORS.lb }}>
                                     &nbsp;Log In
                                 </Text>
