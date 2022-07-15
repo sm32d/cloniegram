@@ -6,4 +6,6 @@ import {navIcons} from "./home/AppNav";
 
 import AddNewPost from "./newPost/AddNewPost";
 
-export { Header, Stories, Post, AppNav, navIcons, AddNewPost };
+import LoginForm from "./login/LoginForm";
+
+export { Header, Stories, Post, AppNav, navIcons, AddNewPost, LoginForm };

@@ -3,6 +3,7 @@
     "@babel/preset-env": "^7.1.6",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/stack": "^6.1.1",
+    "email-validator": "^2.0.4",
     "expo": "^45.0.0",
     "expo-app-loading": "~2.0.0",
     "expo-font": "~10.1.0",

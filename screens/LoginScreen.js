@@ -1,0 +1,27 @@
+import {Image, Text, View} from "react-native";
+import {COLORS, SIZES} from "../constants";
+import {LoginForm} from "../components";
+
+const LoginScreen = () => {
+  return (
+    <View style={{
+        flex: 1,
+        backgroundColor: COLORS.black,
+        paddingTop: 50,
+        paddingHorizontal: SIZES.small
+    }}>
+      <View style={{
+        alignItems: 'center',
+          marginTop: 60
+      }}>
+          <Image source={require('../assets/logo.png')} style={{
+              width: 100,
+              height: 100
+          }} />
+      </View>
+        <LoginForm />
+    </View>
+  );
+}
+
+export default LoginScreen;
