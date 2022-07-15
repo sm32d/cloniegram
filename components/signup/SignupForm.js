@@ -10,6 +10,7 @@ import {
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Validator from 'email-validator';
+import { firebase, db } from '../../firebase'
 
 import { COLORS, SIZES } from '../../constants';
 
@@ -20,6 +21,29 @@ const SignupForm = ({ navigation }) => {
         password: yup.string().required('A password is required').min(6, 'Password must be at least 6 characters long')
     })
 
+    const getRandomProfilePic = async () => {
+        const response = await fetch('https://randomuser.me/api/');
+        const data = await response.json();
+        return data.results[0].picture.large;
+    }
+
+    const onSignup = async (email, username, password) => {
+        try {
+            const authUser = await firebase.auth().createUserWithEmailAndPassword(email, password)
+            db.collection('users').add({
+                owner_uid: authUser.user.uid,
+                username: username,
+                email: authUser.user.email,
+                profile_pic: await getRandomProfilePic()
+            })
+            console.log('Signed up', email, username, password)
+        } catch (error) {
+            Alert.alert(
+                'Oof! 🙈', error.message
+            )
+        }
+    }
+
     return (
         <View style={{
             marginTop: 80
@@ -27,7 +51,7 @@ const SignupForm = ({ navigation }) => {
             <Formik
                 initialValues={{ email: '', username: '', password: '' }}
                 onSubmit={(values) => {
-                    console.log(values)
+                    onSignup(values.email, values.username, values.password)
                 }}
                 validationSchema={SignupFormSchema}
                 validateOnMount={true}
